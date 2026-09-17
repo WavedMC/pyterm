@@ -8,6 +8,8 @@ close = False
 commandlist = ["whoami","help","exit","ls"]
 username = getpass.getuser()
 pcname = socket.gethostname()
+cdtip = "path: "
+filenotfoundmsg = "File Not Found"
 if not os.name == "nt":
     print("请在Windows上启动!")
     close = True
@@ -30,5 +32,13 @@ while not close:
         print(f"{username}")
     elif userprompt == "ls":
         print(subprocess.getoutput("powershell -Command ls"))
+    elif userprompt == "cd":
+        try:
+           cddir = input(cdtip)
+           os.chdir(cddir)
+        except (OSError,EOFError,KeyboardInterrupt):
+           print(filenotfoundmsg)
+    
+    
     else:
-        print (f"{userprompt}: command not found")
+        print(f"{userprompt}: command not found")

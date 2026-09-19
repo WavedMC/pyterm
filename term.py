@@ -5,13 +5,13 @@ import socket
 
 
 close = False
-commandlist = ["whoami","help","exit","ls"]
+commandlist = ["whoami","help","exit","ls","cd"]
 username = getpass.getuser()
 pcname = socket.gethostname()
 cdtip = "path: "
 filenotfoundmsg = "File Not Found"
 if not os.name == "nt":
-    print("请在Windows上启动!")
+    print("Only support Windows")
     close = True
 
 while not close:

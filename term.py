@@ -2,14 +2,16 @@ import os
 import getpass
 import subprocess
 import socket
+import art
 
 
 close = False
-commandlist = ["whoami","help","exit","ls","cd"]
+commandlist = ["whoami","help","exit","ls","cd","art"]
 username = getpass.getuser()
 pcname = socket.gethostname()
 cdtip = "path: "
 filenotfoundmsg = "File Not Found"
+arttexttip = "text: "
 if not os.name == "nt":
     print("Only support Windows")
     close = True
@@ -38,6 +40,9 @@ while not close:
            os.chdir(cddir)
         except (OSError,EOFError,KeyboardInterrupt):
            print(filenotfoundmsg)
+    elif userprompt == "art":
+        arttext = input(arttexttip)
+        print(art.text2art(arttext))
     
     
     else:

@@ -4,10 +4,10 @@
 ## 下载
 
 1. 找到"Releases"
-![[README-1.png]]
+![](README-1.png)
 2. 找到**最新**的版本
 3. 点击**文件名**下载
-![[README-2.png]]
+![](README-2.png)
 ## 参与
 
 *(参与没啥用，你可以随便fork，但要遵守**MIT license**)*

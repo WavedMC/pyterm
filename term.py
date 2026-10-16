@@ -40,7 +40,12 @@ while not close:
     elif userprompt == "whoami":
         print(f"{username}")
     elif userprompt == "ls":
-        print(subprocess.getoutput("powershell -Command ls"))
+        try:
+            files = os.listdir(pwd)
+            for file in files:
+                print(file)
+        except (OSError,EOFError,KeyboardInterrupt):
+            print()
     elif userprompt == "cd":
         try:
            cddir = input(cdtip)
@@ -50,7 +55,7 @@ while not close:
     elif userprompt == "art":
         arttext = input(arttexttip)
         print(art.text2art(arttext))
-    
-    
+    elif userprompt == "crash":
+        raise Exception("Crash command executed")
     else:
         print(f"{userprompt}: command not found")
